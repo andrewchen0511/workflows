@@ -22,7 +22,8 @@ jobs:
           username: ${{ secrets.NAME }}
           password: ${{ secrets.PASSWORD }}
       -
-      
+
+
         name: DockerHub build and push
         uses: docker/build-push-action@v3
         with:
