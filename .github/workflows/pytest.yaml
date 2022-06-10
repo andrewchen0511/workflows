@@ -1,0 +1,18 @@
+name: andrewpytest
+on: push
+
+jobs:
+  my-job:
+    name: My Job
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - uses: actions/setup-python@v3
+    - name: flaskTest
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+    - name: python server test
+      run: |
+        python3 server.py > log.txt 2>&1 &
+        pytest -vv
